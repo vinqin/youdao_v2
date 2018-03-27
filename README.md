@@ -8,7 +8,7 @@
 
 ### 安装
 
-1. 下载`youdao_v2.tgz`和`setup.sh`于同一目录中
+1. 下载resources文件夹下的`youdao_v2.tgz`和`setup.sh`到本地的同一目录中
 2. 终端执行`bash setup.sh`
 
 ### 使用帮助
@@ -25,12 +25,12 @@ translate [-F file] [-f from] [-t to] [-h] word...
 
 ### 示例
 
-![示例1](sample/sample6.png)
+![示例1](resources/sample-pic/sample6.png)
 
-![示例2](sample/sample1.png)
+![示例2](resources/sample-pic/sample1.png)
 
-![示例3](sample/sample2.png)
+![示例3](resources/sample-pic/sample2.png)
 
-![示例4](sample/sample3.png)
+![示例4](resources/sample-pic/sample3.png)
 
-![示例5](sample/sample5.png)
+![示例5](resources/sample-pic/sample5.png)

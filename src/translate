@@ -1,0 +1,50 @@
+#!/bin/bash
+
+usage() { echo "Usage: translate [OPTION]... [WORD]..."
+    echo -e "Translate WORDs from specified language to specified language(the defualt language is auto)."
+    echo "Description:"
+    echo -e "    -F FILE, the sourced file.\n\tThe file which you want to translate must include the full pathname."
+    echo -e "    -f LANGUAGE, the sourced language.\n\tIt can be zh-CHS(Simplified Chinese), ja(Japanese), EN(English), ko(Korean),\n\tfr(French), ru(Russian), pt(Portuguese) or es(Spanish). It can auto detect \n\tthe sourced language if you do not set the sourced language."
+    echo -e "    -t LANGUAGE, the targeted language.\n\tIt can be zh-CHS(Simplified Chinese), ja(Japanese), EN(English), ko(Korean),\n\tfr(French), ru(Russian), pt(Portuguese) or es(Spanish). It can auto detect \n\tthe targeted language if you do not set the targeted language."
+    echo -e "    -h Print this help information."
+    exit 1
+}
+
+src="auto"
+dest="auto"
+files="null"
+
+while getopts ':F:f:t:h' OPT; do
+    case $OPT in
+        F) files="$OPTARG";;
+        f) src="$OPTARG";;
+        t) dest="$OPTARG";;
+        h) usage;;
+        :) echo "translate: option requires an argument '-$OPTARG'"
+           echo "Try 'translate -h' for more information."
+           exit 64
+           ;;
+        ?)
+           echo "translate: invalid option '-$OPTARG'"
+           echo "Try 'translate -h' for more information."
+           exit 2
+           ;;
+    esac
+done
+
+shift $(($OPTIND - 1))
+words="$*"
+
+if [ "$files" != "null" ];then
+  if [[ -f "$files" && -r "$files" ]]; then
+    #echo "$files: 纯文件存在且可读"
+    java -jar /opt/youdao_v2/youdao_v2.jar $src $dest $files $*
+  else
+    #echo "$files: 纯文件不存在或不可读"
+    echo "translate: cannot access '$files': No such file or make sure it is a readable file."
+    exit 2
+  fi
+else
+  #echo "files=null"
+  java -jar /opt/youdao_v2/youdao_v2.jar $src $dest $files $*
+fi

@@ -1,11 +1,11 @@
 #!/bin/bash
 
 usage() { echo "Usage: translate [OPTION]... [WORD]..."
-    echo -e "Translate WORDs from specified language to specified language(the defualt language is auto)."
+    echo -e "Translate WORDs from specified language to specified language(the default language is auto)."
     echo "Description:"
     echo -e "    -F FILE, the sourced file.\n\tThe file which you want to translate must include the full pathname."
-    echo -e "    -f LANGUAGE, the sourced language.\n\tIt can be zh-CHS(Simplified Chinese), ja(Japanese), EN(English), ko(Korean),\n\tfr(French), ru(Russian), pt(Portuguese) or es(Spanish). It can auto detect \n\tthe sourced language if you do not set the sourced language."
-    echo -e "    -t LANGUAGE, the targeted language.\n\tIt can be zh-CHS(Simplified Chinese), ja(Japanese), EN(English), ko(Korean),\n\tfr(French), ru(Russian), pt(Portuguese) or es(Spanish). It can auto detect \n\tthe targeted language if you do not set the targeted language."
+    echo -e "    -f TYPE, the sourced language type.\n\tIt can be zh-CHS(Simplified Chinese), ja(Japanese), EN(English), ko(Korean),\n\tfr(French), ru(Russian), pt(Portuguese) or es(Spanish). It can auto detect \n\tthe sourced language type if you do not set the sourced language type."
+    echo -e "    -t TYPE, the targeted language type.\n\tIt can be zh-CHS(Simplified Chinese), ja(Japanese), EN(English), ko(Korean),\n\tfr(French), ru(Russian), pt(Portuguese) or es(Spanish). It can auto detect \n\tthe targeted language type if you do not set the targeted language type."
     echo -e "    -h Print this help information."
     exit 1
 }
